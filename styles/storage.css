@@ -1,0 +1,14 @@
+.color{
+    background-color: purple !important;
+    
+}
+.navbar-light .navbar-brand{
+    color:white;
+}
+
+.navbar-nav.mr-auto{
+
+    display:flex !important;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}

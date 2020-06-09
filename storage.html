@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>storage</title>
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" type = text/css href="./styles/storage.css">
+</head>
+<body>
+
+   
+    <nav class="navbar navbar-light color justify-content-between">
+        <a class="navbar-brand">Navbar</a>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+
+
+      <hr>
+      <h1>Your Notes</h1>
+      <hr>
+      <div id="local" class="row container-fluid"> </div>
+  
+       
+       
+        <!-- <div class="card-body">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  Index
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Name:</li>
+                  <li class="list-group-item">Email:</li>
+                  <li class="list-group-item">Message:</li>
+                </ul>
+                <a id = "delbtn" class="btn btn-primary">Delete</a>
+              </div>
+        </div> -->
+
+        
+<script>
+  let local = localStorage.getItem("local");
+  if (local == null) {
+    Obj = [];
+  } else {
+    Obj = JSON.parse(local);
+  }
+  let html = "";
+  Obj.forEach(function(element, index,array) {
+   
+    html += `
+    <div class="card-body">
+      <div class="card" style="width: 18rem;">
+          <div class="card-header">
+           <strong> ${index + 1}</strong>
+          </div>
+          <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">Email:${element}</li>
+           
+          </ul>
+          <!-- <button "onclick="deleteNote(this.id)" class="btn btn-primary">Delete</button> -->
+        </div>
+  </div>`;
+  });
+  let notesElm = document.getElementById("local");
+  if (Obj.length != 0) {
+    notesElm.innerHTML = html ;
+  } else {
+    notesElm.innerHTML = `Nothing to show! Use "Add a Note" section above to add notes.`;
+  }   
+  
+  
+//name
+
+  
+</script>     
+         
+ 
+        
+
+
+      <!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="storage1.js"></script>
+<!-- <script src="app.js"></script> -->
+
+
+
+</body>
+</html>
